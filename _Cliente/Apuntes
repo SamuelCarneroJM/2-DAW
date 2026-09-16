@@ -1,0 +1,14 @@
+Para enviar datos de formulario con ficheros:
+
+enctype
+
+Formulario habitual: 
+<form method="post" enctype="application/x-www-form-urlencoded">
+
+Formulario con archivos:
+<form action="/subir" method="post" enctype="multipart/form-data">
+  <input type="file" name="archivo">
+  <button type="submit">Subir archivo</button>
+</form>
+
+hacer cuenta de git y subir un hola mundo subido desde visual
