@@ -15,3 +15,4 @@ let resultado2 = x / 0;
 
 console.log("Suma:", resultado);
 console.log("División:", resultado2);
+console.log("Prueba");
