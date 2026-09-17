@@ -1,0 +1,7 @@
+Lo que poner en el buscador para conectarte a putty
+
+>ssh
+
+connect to host
+
+ssh desweb@10.203.1.16 -p 22
