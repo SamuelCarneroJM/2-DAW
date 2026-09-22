@@ -1,0 +1,20 @@
+-- para crear un nuevo proyecto
+
+ng new "nombre del proyecto" (sin comillas)
+
+-- para levantar el servidor
+
+(estar en la carpeta del proyecto)
+cd "nombre del proyecto" (sin comillas)
+-- encender el servidor
+ng serve --open
+
+-- componentes
+-- generar componentes
+ng g c "nombre del componente" (sin comillas)
+
+-- declarar variables
+let variable: tipo = valor;
+-- constantes
+const constante: tipo = valor;
+
