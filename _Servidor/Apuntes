@@ -5,3 +5,22 @@ Lo que poner en el buscador para conectarte a putty
 connect to host
 
 ssh desweb@10.203.1.16 -p 22
+
+instalar la ova y cambiar ips (mirar foto)
+sudo netplan apply
+
+instalar apache
+sudo apt install apache2
+
+mirar ip
+ifconfig 
+
+instalar putty portable
+puerto 22
+ip del ubuntu
+tipo de conexion ssh
+telnet
+llamar a la sesion desweb
+
+para probar conexion ping desde la maquina normal a la virtual
+
