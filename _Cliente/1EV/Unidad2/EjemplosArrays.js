@@ -71,3 +71,21 @@ for (let i = 0; i < tabla3.length; i++) {
         }
     }
 }
+
+// -- TABLA 4 --
+console.log("TABLA 4");
+let tabla4 = [1, 2, 3, ["a", "b", "c"], "d", true, [4, 5]];
+tabla4[8] = "d";
+
+for (let i = 0; i < tabla4.length; i++) {
+    if (typeof (tabla4[i]) === "object") {
+        for (let j = 0; j < tabla4[i].length; j++) {
+            console.log(tabla4[i][j]);
+        }
+    } else {
+        console.log(tabla4[i]);
+    }
+}
+
+// -- FUNCIONES DE ARRAY --
+console.log(" --FUNCIONES DE ARRAY -- ")
