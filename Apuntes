@@ -8,7 +8,8 @@ remote ssh editing configuration
 remote explorer
 error lens
 
-
-
+error habitual de git con credenciales
+git config --global user.name "SamuelCarneroJM"
+git config --global user.email "329713665+SamuelCarneroJM@users.noreply.github.com"
 
 
