@@ -1,18 +1,29 @@
 let palabra = "Bienvenido";
 
-//charAt devuelve el caracter en la posición que recibe como parámetro
+//charAt devuelve el caracter en la posición que recibe como parámetro, en caso de repetirse, devuelve la primera posicion
 console.log("---charAt(pos)---");
 console.log(palabra.charAt(0));
 console.log(palabra.charAt(1));
 console.log(palabra.charAt(3));
 
-//substr devuelve la subcadena desde la primera posicion a la segunda sin incluirla
+//substr devuelve la subcadena desde la posicion pasada como primer parametro y con la longitud pasada por el segundo
 console.log("---substr(i,f)---");
-console.log(palabra.substr(0,3)); 
-console.log(palabra.substr(3,5)); 
-console.log(palabra.substr(2,2)); 
+console.log(palabra.substr(0, 3));
+console.log(palabra.substr(3, 5));
+console.log(palabra.substr(2, 2));
+
+//substring devuelve la cadena que se encuentra entre el primer parametro y el segundo, sin incluirlo
+console.log("---substring---");
+console.log(palabra.substring(0, 3));
+console.log(palabra.substring(3, 5));
+console.log(palabra.substring(2, 2));
 
 //split devuelve una cadena en diferentes partes separadas por el caracter o caracteres indicados, lo devuelve como array
 console.log("---split(c)---");
-console.log(palabra.split("v")); 
-console.log(palabra.split("ni")); 
+console.log(palabra.split("v"));
+console.log(palabra.split("ni"));
+//si no se pone nada dentro de las comillas, divide toda la palabra en un array
+console.log(palabra.split(""));
+//si no se pone nada, crea un array solo con el string al que se le hace el split
+console.log(palabra.split());
+
