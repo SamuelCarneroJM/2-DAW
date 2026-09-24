@@ -285,14 +285,26 @@ numeros.sort();
 imprimir(numeros);
 
 // Para ordenar números de menor a mayor se utiliza (a - b).
-numeros.sort((a, b) => a - b);
+console.log([6, -2, 2, -7].sort(function (a, b) {
+    return a - b;
+}));
+
+console.log(numeros.sort(function (a, b) {
+    return a - b;
+}));
 
 console.log("Orden de menor a mayor:");
 
 imprimir(numeros);
 
 // Para ordenar números de mayor a menor se utiliza (b - a).
-numeros.sort((a, b) => b - a);
+console.log([6, -2, 2, -7].sort(function (a, b) {
+    return b - a;
+}));
+
+console.log(numeros.sort(function (a, b) {
+    return b - a;
+}));
 
 console.log("Orden de mayor a menor:");
 
@@ -300,10 +312,18 @@ imprimir(numeros);
 
 console.log("---------------------");
 
+let prueba =["platano", "manzana", "melocoton", "uva"];
+
+console.log(prueba.sort(function (a, b) {
+    return prueba.indexOf(a)-prueba.indexOf(b);
+}));
+
+
+
 // Función para imprimir los elementos del array.
 function imprimir(array) {
     for (let i = 0; i < array.length; i++) {
-        if (typeof(array[i]) == "object") {
+        if (typeof (array[i]) == "object") {
             for (let j = 0; j < array[i].length; j++) {
                 console.log(array[i][j]);
             }

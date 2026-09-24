@@ -1,0 +1,18 @@
+let palabra = "Bienvenido";
+
+//charAt devuelve el caracter en la posición que recibe como parámetro
+console.log("---charAt(pos)---");
+console.log(palabra.charAt(0));
+console.log(palabra.charAt(1));
+console.log(palabra.charAt(3));
+
+//substr devuelve la subcadena desde la primera posicion a la segunda sin incluirla
+console.log("---substr(i,f)---");
+console.log(palabra.substr(0,3)); 
+console.log(palabra.substr(3,5)); 
+console.log(palabra.substr(2,2)); 
+
+//split devuelve una cadena en diferentes partes separadas por el caracter o caracteres indicados, lo devuelve como array
+console.log("---split(c)---");
+console.log(palabra.split("v")); 
+console.log(palabra.split("ni")); 
