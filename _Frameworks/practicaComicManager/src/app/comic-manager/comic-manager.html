@@ -27,11 +27,17 @@
         }
         <br><br>
         <button (click)="aumentarStock(comic.id)"> Añadir 1</button>
-        <button (click)="venderComic(comic.id)" [disabled]="comic.stock === 0"> Vender
-            1</button>
+        <button (click)="venderComic(comic.id)" [disabled]="comic.stock === 0"> Vender 1</button>
+
     </div>
-    } @empty {
+    }
+
+    @empty {
     <p> No hay cómics registrados en el inventario.</p>
     }
-}
-</div>
+</div>}
+<hr>
+
+<button (click)="vaciarAlmacen()">
+    Vaciar Almacén
+</button>

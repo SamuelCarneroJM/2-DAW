@@ -40,6 +40,10 @@ export class ComicManager {
     );
   }
 
+  vaciarAlmacen(): void {
+    this.comics.set([]);
+  }
+
   toggleVista(): void {
     this.mostrarModoCompacto.update(estadoActual => !estadoActual);
   }
