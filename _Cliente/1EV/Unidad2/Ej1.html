@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <script>
+        // Pedimos al usuario el número de filas y columnas.
+        let filas = prompt("Introduce el número de filas:");
+        let columnas = prompt("Introduce el número de columnas:");
+
+        // Comprobamos que los valores sean números enteros positivos.
+        if (filas <= 0 || columnas <= 0) {
+            document.write("<p>Debes introducir números enteros mayores que 0.</p>");
+        } else {
+
+            // Creamos el inicio de la tabla.
+            document.write("<table border='1'>");
+
+            // Este bucle recorre las filas.
+            for (let i = 0; i < filas; i++) {
+                document.write("<tr>");
+
+                // Este bucle recorre las columnas.
+                for (let j = 0; j < columnas; j++) {
+                    // Mostramos el índice con el formato fila,columna.
+                    document.write("<td>" + i + "," + j + "</td>");
+                }
+
+                document.write("</tr>");
+            }
+
+            // Cerramos la tabla.
+            document.write("</table>");
+        }
+    </script>
+</body>
+
+</html>
