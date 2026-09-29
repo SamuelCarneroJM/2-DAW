@@ -86,6 +86,3 @@ for (let i = 0; i < tabla4.length; i++) {
         console.log(tabla4[i]);
     }
 }
-
-// -- FUNCIONES DE ARRAY --
-console.log(" --FUNCIONES DE ARRAY -- ")
