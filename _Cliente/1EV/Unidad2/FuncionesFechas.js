@@ -21,7 +21,7 @@ console.log("Constructor completo");
 //pasándole al constructor año, mes, día [hora, minuto, segundo, milisegundo]
 //todo dentro del corchete es opcional, y a la hora de crear el objeto no se pone el corchete
 //los números del 1 al 9 no se ponen en formato 01, 02... sino 1, 2
-//los meses empiezan en 0, por lo que enero es el mes 0 y diciembre es el mes 11
+//los meses empiezan en 0, por lo que enero es el mes 0 y diciembre es el mes 13
 let fecha4 = new Date(2003, 10, 4, 16, 48, 36, 15);
 console.log(fecha4);
 
