@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+    <script>
+        // El programa pide los datos y repite el proceso hasta que la fecha tenga el formato correcto.
+        let correcto = false;
+        do {
+            let datos = prompt("Introduce tu nombre, dos apellidos y fecha de nacimiento con el siguiente formato: Nombre,Apellido1,Apellido2,dd/mm/aa").trim();
+            if (datos.length != 0) {
+                let arrayDatos = datos.split(",");
+                console.log(datos.split(","));
+                let nombre = arrayDatos[0];
+                let apellido1 = arrayDatos[1];
+                let apellido2 = arrayDatos[2];
+                let fechaNacimiento;
+                if (comprobarFecha(arrayDatos[3])) {
+                    fechaNacimiento = new Date(arrayDatos[3]);
+                    document.write("<table border=solid>");
+                    document.write("<tr><td>Nombre</td><td>" + nombre + "</td></tr>");
+                    document.write("<tr><td>Apellido1</td><td>" + apellido1 + "</td></tr>");
+                    document.write("<tr><td>Apellido2</td><td>" + apellido2 + "</td></tr>");
+                    document.write("<tr><td>FechaNacimiento</td><td>" + fechaNacimiento + "</td></tr>");
+                    document.write("</table>");
+                    console.log(nombre, apellido1, apellido2, fechaNacimiento);
+                    correcto = true;
+                } else {
+                    alert("El formato de la fecha no es correcto")
+                }
+            } else {
+                alert("FORMATO INCORRECTO")
+            };
+        } while (!correcto);
+
+        // La función separa la fecha por las barras y comprueba que tenga tres partes.
+        // Después verifica que cada parte tenga dos caracteres y que todas sean numéricas.
+        function comprobarFecha(fecha) {
+            let partesFecha = fecha.split("/");
+            if (partesFecha.length !== 3) {
+                return false;
+            }
+            if (partesFecha[0].length !== 2 ||
+                partesFecha[1].length !== 2 ||
+                partesFecha[2].length !== 2) {
+                return false;
+            }
+            if (isNaN(partesFecha[0]) ||
+                isNaN(partesFecha[1]) ||
+                isNaN(partesFecha[2])) {
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
