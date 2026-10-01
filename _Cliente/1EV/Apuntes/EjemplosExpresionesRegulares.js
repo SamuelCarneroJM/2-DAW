@@ -239,6 +239,6 @@ console.log(result[2]);
 // abclabc true
 // abcabclabcabc true
 // abcabcabcabc true
-console.log(/(^[a-c]{3,9}) && ([a-c]{3,9}$)/.test('abclabc'));
+console.log(/((^[a-c]{3,9}.*) && (.*[a-c]{3,9}$))/.test('abclabc'));
 console.log(/^[a-c]{3,9}$/.test('aaaaaaaaiaaaaaaaa'));
 console.log(/^(?=[a-c]{3,9}).*[a-c]{3,9}$/.test('abclabc'));
