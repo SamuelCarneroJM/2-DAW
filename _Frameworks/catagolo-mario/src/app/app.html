@@ -1,107 +1,67 @@
 <main class="contenedor">
-  <header class="cabecera">
-    <p class="etiqueta">COLECCIÓN NINTENDO</p>
-    <h1>Catálogo de Juegos de Mario</h1>
-    <p class="descripcion">
-      Explora y gestiona tus juegos favoritos de la saga Mario.
-    </p>
+  <h1>Catálogo de Juegos de Mario</h1>
 
-    <div class="contador">
-      <span class="numero">{{ totalJuegos() }}</span>
-      <span class="texto-contador">
-        {{ totalJuegos() === 1 ? 'juego' : 'juegos' }} en el catálogo
-      </span>
-    </div>
-  </header>
+  <p>
+    Total de juegos:
+    <strong>{{ totalJuegos() }}</strong>
+  </p>
 
-  <section class="panel-formulario">
-    <h2>Añadir un juego</h2>
+  <section class="formulario">
+    <h2>Añadir juego</h2>
 
-    <div class="formulario">
-      <div class="campo campo-grande">
-        <label for="titulo">Título</label>
-        <input
-          id="titulo"
-          type="text"
-          [value]="tituloInput()"
-          (input)="actualizarTitulo($event)"
-          placeholder="Ejemplo: Super Mario Galaxy"
-        />
-      </div>
+    <input
+      type="text"
+      [value]="tituloInput()"
+      (input)="actualizarTitulo($event)"
+      placeholder="Título del juego"
+    />
 
-      <div class="campo">
-        <label for="plataforma">Plataforma</label>
-        <input
-          id="plataforma"
-          type="text"
-          [value]="plataformaInput()"
-          (input)="actualizarPlataforma($event)"
-          placeholder="Ejemplo: Wii"
-        />
-      </div>
+    <input
+      type="text"
+      [value]="plataformaInput()"
+      (input)="actualizarPlataforma($event)"
+      placeholder="Plataforma"
+    />
 
-      <div class="campo">
-        <label for="anio">Año</label>
-        <input
-          id="anio"
-          type="number"
-          [value]="anioInput()"
-          (input)="actualizarAnio($event)"
-          placeholder="Ejemplo: 2007"
-        />
-      </div>
+    <input
+      type="number"
+      [value]="anioInput()"
+      (input)="actualizarAnio($event)"
+      placeholder="Año"
+    />
 
-      <div class="campo">
-        <label for="tipo">Tipo</label>
-        <input
-          id="tipo"
-          type="text"
-          [value]="tipoInput()"
-          (input)="actualizarTipo($event)"
-          placeholder="Ejemplo: Plataformas"
-        />
-      </div>
+    <input
+      type="text"
+      [value]="tipoInput()"
+      (input)="actualizarTipo($event)"
+      placeholder="Tipo de juego"
+    />
 
-      <div class="campo">
-        <label for="categoria">Categoría</label>
-        <select
-          id="categoria"
-          [value]="categoriaInput()"
-          (change)="actualizarCategoria($event)"
-        >
-          <option value="Principal">Principal</option>
-          <option value="Spin-off">Spin-off</option>
-        </select>
-      </div>
+    <select
+      [value]="categoriaInput()"
+      (change)="actualizarCategoria($event)"
+    >
+      <option value="Principal">Principal</option>
+      <option value="Spin-off">Spin-off</option>
+    </select>
 
-      <button
-        class="boton-anadir"
-        type="button"
-        (click)="agregarJuego()"
-      >
-        Añadir juego
-      </button>
-    </div>
+    <button type="button" (click)="agregarJuego()">
+      Añadir juego
+    </button>
   </section>
 
-  <section class="catalogo">
-    <div class="titulo-seccion">
-      <h2>Juegos disponibles</h2>
-      <span>{{ totalJuegos() }} títulos</span>
-    </div>
+  <section class="lista">
+    <h2>Juegos disponibles</h2>
 
-    <div class="lista-juegos">
-      @for (juego of juegos(); track juego.id) {
-        <app-juego-item
-          [juego]="juego"
-          (onEliminar)="eliminarJuego($event)"
-        />
-      } @empty {
-        <div class="catalogo-vacio">
-          <p>El catálogo está vacío.</p>
-          <span>Añade un juego para comenzar.</span>
-        </div>
-      }
-    </div>
+    @for (juego of juegos(); track juego.id) {
+      <app-juego-item
+        [juego]="juego"
+        (onEliminar)="eliminarJuego($event)"
+      />
+    } @empty {
+      <p class="vacio">
+        No hay juegos en el catálogo.
+      </p>
+    }
   </section>
 </main>

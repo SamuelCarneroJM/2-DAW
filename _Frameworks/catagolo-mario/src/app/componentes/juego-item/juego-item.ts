@@ -39,90 +39,54 @@ import { Juego } from '../../modelos/juego';
       </button>
     </article>
   `,
-  styles: [`
-    .tarjeta-juego {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      padding: 20px;
-      margin-bottom: 14px;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.06);
-    }
+styles: [`
+  .tarjeta-juego {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
 
-    .informacion-juego {
-      flex: 1;
-    }
+  h2 {
+    margin: 0 0 8px;
+    color: #333;
+  }
 
-    .cabecera-tarjeta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+  p {
+    margin: 5px 0;
+    color: #555;
+  }
 
-    h2 {
-      margin: 0;
-      color: #1e293b;
-      font-size: 1.2rem;
-    }
+  .detalles {
+    display: flex;
+    gap: 15px;
+    color: #666;
+  }
 
-    .categoria {
-      padding: 4px 9px;
-      border-radius: 999px;
-      background-color: #fee2e2;
-      color: #b91c1c;
-      font-size: 0.8rem;
-      font-weight: 700;
-    }
+  .categoria {
+    color: #d62828;
+    font-weight: bold;
+  }
 
-    .tipo {
-      margin: 8px 0;
-      color: #dc2626;
-      font-weight: 600;
-    }
+  .boton-eliminar {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+  }
 
-    .detalles {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      color: #64748b;
-      font-size: 0.9rem;
-    }
+  .boton-eliminar:hover {
+    background-color: #a71d2a;
+  }
+`]
 
-    .detalles strong {
-      color: #334155;
-    }
-
-    .boton-eliminar {
-      flex-shrink: 0;
-      padding: 9px 14px;
-      border: 0;
-      border-radius: 8px;
-      background-color: #ef4444;
-      color: white;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    .boton-eliminar:hover {
-      background-color: #dc2626;
-    }
-
-    @media (max-width: 600px) {
-      .tarjeta-juego {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .boton-eliminar {
-        width: 100%;
-      }
-    }
-  `]
 })
 export class JuegoItemComponent {
   juego = input.required<Juego>();
