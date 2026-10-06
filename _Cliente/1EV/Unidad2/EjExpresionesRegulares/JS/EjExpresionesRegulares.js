@@ -10,26 +10,26 @@
 
 // Nombre: empieza por mayúscula y continúa con letras.
 // Permite letras españolas como á, ñ o ü.
-let exprNombre = /^[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]*$/;
+let exNombre = /^[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]*$/;
 // Apellidos: permite uno o varios apellidos separados por un espacio.
 // Cada apellido debe empezar por mayúscula.
-let exprApellidos = /^[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]*( [A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]*)*$/;
+let exApellidos = /^[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]*( [A-ZÁÉÍÓÚÜÑ][a-záéíóúüñ]*)*$/;
 // Edad: entre 1 y 3 dígitos.
-let exprEdad = /^[0-9]{1,3}$/;
+let exEdad = /^[0-9]{1,3}$/;
 // Email: letras, números, punto, guion y guion bajo antes de la @.
 // Después de la @ permite letras y números, un punto y un dominio de 2 o 3 letras.
-let exprEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+let exEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
 // Teléfono: debe empezar por 6 o 9 y tener 9 dígitos en total.
-let exprTelefono = /^[69][0-9]{8}$/;
+let exTelefono = /^[69][0-9]{8}$/;
 // Centro: entre 5 y 120 caracteres.
-let exprCentro = /^.{5,120}$/;
+let exCentro = /^.{5,120}$/;
 // Curso: solo puede ser el número 1 o el número 2.
-let exprCurso = /^[12]$/;
+let exCurso = /^[12]$/;
 // Observaciones: entre 0 y 120 caracteres.
 // Si quieres obligar a escribir al menos un carácter, utiliza {1,120}.
-let exprObservaciones = /^.{0,120}$/;
+let exObservaciones = /^.{0,120}$/;
 // Año: exactamente cuatro cifras.
-let exprAnio = /^[0-9]{4}$/;
+let exAnio = /^[0-9]{4}$/;
 
 
 let nombre = prompt("Introduce tu nombre: ");
@@ -42,15 +42,15 @@ let curso = prompt("Introduce tu curso: ");
 var observaciones = prompt("Introduce alguna observacion: ");
 var anio = prompt("Introduce tu año de nacimiento: ");
 
-comprobar("Nombre", nombre, exprNombre);
-comprobar("Apellidos", apellidos, exprApellidos);
-comprobar("Edad", edad, exprEdad);
-comprobar("Email", email, exprEmail);
-comprobar("Telefono", telefono, exprTelefono);
-comprobar("Centro", centro, exprCentro);
-comprobar("Curso", curso, exprCurso);
-comprobar("Observaciones", observaciones, exprObservaciones);
-comprobar("Año", anio, exprAnio);
+comprobar("Nombre", nombre, exNombre);
+comprobar("Apellidos", apellidos, exApellidos);
+comprobar("Edad", edad, exEdad);
+comprobar("Email", email, exEmail);
+comprobar("Telefono", telefono, exTelefono);
+comprobar("Centro", centro, exCentro);
+comprobar("Curso", curso, exCurso);
+comprobar("Observaciones", observaciones, exObservaciones);
+comprobar("Año", anio, exAnio);
 
 function comprobar(titulo, dato, expresion) {
     let resultado = expresion.test(dato);
