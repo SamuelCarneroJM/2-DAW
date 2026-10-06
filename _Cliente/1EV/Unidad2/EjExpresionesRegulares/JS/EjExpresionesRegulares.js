@@ -55,12 +55,13 @@ comprobar("Año", anio, exAnio);
 function comprobar(titulo, dato, expresion) {
     let resultado = expresion.test(dato);
 
-    console.log(titulo + ": " + resultado);
+    document.write(`<p>${titulo}: ${resultado}</p>`);
+
+    document.getElementById("textoResultado").innerHTML +="<p>" + titulo + resultado;
 
     if (!resultado) {
-        console.log("El campo " + titulo + " no cumple las especificaciones");
+        document.getElementById("textoResultado").innerHTML +="<p> El dato no es valido";
     }
-
     return resultado;
 }
 
