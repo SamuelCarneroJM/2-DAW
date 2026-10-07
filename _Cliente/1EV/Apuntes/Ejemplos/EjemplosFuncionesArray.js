@@ -360,6 +360,86 @@ console.log("Array creado con cinco ceros:");
 imprimir(arrayInicializado);
 // [0, 0, 0, 0, 0]
 
+// Array.of()
+console.log(" -- ARRAY.OF -- ");
+
+// Array.of() crea un nuevo array utilizando los valores que recibe.
+// Cada argumento se convierte en un elemento del array.
+
+let arrayOf = Array.of(1, 2, 3, 4, 5);
+
+console.log("Array creado con Array.of():");
+
+imprimir(arrayOf);
+// 1
+// 2
+// 3
+// 4
+// 5
+
+console.log("---------------------");
+
+// También se puede utilizar con strings.
+let nombresOf = Array.of("Samuel", "Santi", "Nico");
+
+console.log("Array de nombres:");
+
+imprimir(nombresOf);
+// Samuel
+// Santi
+// Nico
+
+console.log("---------------------");
+
+// Una diferencia importante con new Array():
+// Array.of(5) crea un array que contiene el número 5.
+let arrayNumero = Array.of(5);
+
+console.log("Array.of(5):");
+
+imprimir(arrayNumero);
+// 5
+
+console.log("---------------------");
+
+// En cambio, new Array(5) crea un array vacío con cinco posiciones.
+let arrayPosiciones = new Array(5);
+
+console.log("new Array(5):");
+
+console.log(arrayPosiciones);
+// [ <5 empty items> ]
+
+console.log(" -- ARRAY BIDIMENSIONAL CON ARRAY.OF -- ");
+
+// Array.of() recibe tres arrays y los guarda como filas.
+let matriz = Array.of(
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+);
+
+console.log(matriz);
+// [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ]
+
+// Array.of() recibe tres arrays y los guarda como filas.
+let matriz3 = Array.of(
+    [matriz],
+    [numerosFill],
+    [numeros]
+);
+
+console.log(matriz3);
+// [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+// ]
+
 
 // Función para imprimir los elementos del array.
 function imprimir(array) {
@@ -372,4 +452,30 @@ function imprimir(array) {
             console.log(array[i]);
         }
     }
+}
+
+//ejemplo foreach
+arrayNumero.forEach(function (elemento) {
+    console.log(elemento);
+});
+
+console.log(" -- IMPRIMIR ARRAY BIDIMENSIONAL -- ");
+
+let matriz2 = Array.of(
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+);
+
+// Recorremos las filas de la matriz.
+for (let i = 0; i < matriz2.length; i++) {
+    let textoFila = "";
+
+    // Recorremos las columnas de cada fila.
+    for (let j = 0; j < matriz2[i].length; j++) {
+        textoFila += matriz2[i][j] + " , ";
+    }
+
+    // Mostramos cada fila completa en una línea.
+    console.log(textoFila);
 }
