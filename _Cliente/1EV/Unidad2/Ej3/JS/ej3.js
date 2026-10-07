@@ -1,10 +1,12 @@
 let arrBase = Array(4, 0, 3, 4, 7, 3, 5, 8, 1, 8, 8, 0, 2, 3, 1, 2, 5, 7, 3, 2, 5, 1);
 
-// console.log("array antes de la funcion" + arrBase);
+console.log("array antes de la funcion" + arrBase);
 
 
 // si le pasas a una funcion un objeto y lo cambias dentro de la funcion, el objeto fuera tambien va a cambiar ya que hace uso de la referencia en memoria, mientras que al pasar una variable crea una copia de la variable y es la que cambia
 let ar2 = ordenarArray(arrBase);
+console.log("array despues de la funcion" + arrBase);
+
 let n = 6;
 cambiaNumero(n);
 // console.log(n);
@@ -33,16 +35,17 @@ console.log("Antes de ordenar: " + arLetrasNums);
 ordenarArrayLetras(arLetrasNums);
 console.log("Despues de ordenar: " + arLetrasNums);
 
-// console.log("array despues de la funcion" + arrBase);
+
 
 // document.getElementById("textoResultado").innerHTML += "<p> " + ar2 + "</p>";
 
-function ordenarArray(ar1) {
+//para pasarle a una funcion un objeto y que no lo modifique se utilizan los ... (3 puntos antes del argumento)
+function ordenarArray(...ar1) {
     //ordeno el array
     ar1.sort();
 
     //muestro el array 1
-    // console.log(ar1);
+    console.log(ar1);
 
     //declaro el array 2
     let arOrdenado = Array();
@@ -56,7 +59,7 @@ function ordenarArray(ar1) {
     });
 
 
-    // console.log(arOrdenado);
+    console.log(arOrdenado);
     return arOrdenado;
 }
 

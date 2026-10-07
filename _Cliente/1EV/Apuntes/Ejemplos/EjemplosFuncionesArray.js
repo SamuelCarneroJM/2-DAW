@@ -312,12 +312,53 @@ imprimir(numeros);
 
 console.log("---------------------");
 
-let prueba =["platano", "manzana", "melocoton", "uva"];
+let prueba = ["platano", "manzana", "melocoton", "uva"];
 
 console.log(prueba.sort(function (a, b) {
-    return prueba.indexOf(a)-prueba.indexOf(b);
+    return prueba.indexOf(a) - prueba.indexOf(b);
 }));
 
+// fill()
+console.log(" -- FILL -- ");
+
+// Rellena todos los elementos del array con el valor indicado.
+// Modifica el array original.
+
+let numerosFill = [1, 2, 3, 4, 5];
+
+console.log("Array antes de utilizar fill():");
+
+imprimir(numerosFill);
+
+numerosFill.fill(0);
+
+console.log("Array después de utilizar fill():");
+
+imprimir(numerosFill);
+// [0, 0, 0, 0, 0]
+
+console.log("---------------------");
+
+// También se pueden indicar la posición inicial y la posición final.
+// La posición final no se incluye.
+let numerosFillParcial = [1, 2, 3, 4, 5];
+
+numerosFillParcial.fill(0, 1, 4);
+
+console.log("Array rellenado desde la posición 1 hasta la posición 4:");
+
+imprimir(numerosFillParcial);
+// [1, 0, 0, 0, 5]
+
+console.log("---------------------");
+
+// También se puede utilizar fill() para crear un array con varias posiciones iguales.
+let arrayInicializado = new Array(5).fill(0);
+
+console.log("Array creado con cinco ceros:");
+
+imprimir(arrayInicializado);
+// [0, 0, 0, 0, 0]
 
 
 // Función para imprimir los elementos del array.
