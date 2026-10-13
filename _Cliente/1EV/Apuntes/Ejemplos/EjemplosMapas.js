@@ -2,8 +2,14 @@ console.log(" -- MAP -- ");
 
 // Map permite guardar datos utilizando una clave y un valor.
 let alumnos = new Map();
+// valores con el constructor
+let alumnos2 = new Map([["nombre", "Samuel"], ["edad", 23], ["curso", "2DAW"]]);
 
 
+
+for (let entrada of alumnos2.entries()) {
+    console.log(entrada);
+}
 // set()
 // Añade una clave con su correspondiente valor.
 alumnos.set("nombre", "Laura");
@@ -14,7 +20,7 @@ console.log(alumnos);
 
 // size()
 // Numero de valores en el mapa
-console.log(alumnos.size());
+console.log(alumnos.size);
 
 // get()
 // Obtiene el valor asociado a una clave.
