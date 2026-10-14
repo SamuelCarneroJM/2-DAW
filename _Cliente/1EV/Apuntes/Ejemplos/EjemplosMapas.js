@@ -77,3 +77,24 @@ console.log(alumnos);
 
 console.log(alumnos.size);
 // 0
+
+//forof
+//bucle for para recorrer mapas
+console.log("-- forof --");
+for (let element of alumnos2) {
+    console.log(element);
+}
+
+//si a for of se le declara una variable clave, valor devuelve esas dos variables
+//bucle para distinguir claves y valores
+console.log("-- forof clave, valor --");
+for (let [clave, valor] of alumnos2) {
+    console.log(clave + " = " + valor);
+}
+
+//NO SE PUEDE
+for (let clave2 in alumnos2.values()) {
+    if (Object.hasOwn(alumnos2, clave2)) {
+        console.log(clave2, alumnos2[clave2]);
+    }
+}
