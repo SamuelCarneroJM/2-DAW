@@ -65,15 +65,26 @@ console.log("some:", c.some((valor, indice, arr) => valor > 4));
 let some = c.some((valor, indice, arr) => valor > 4);
 console.log(some);
 
-// REDUCE: Acumula los valores de izquierda a derecha para obtener un único resultado (ej. sumar todos)
+// REDUCE: Acumula los valores de izquierda a derecha para obtener un único resultado (por ejemplo, sumar todos)
+// el 0 al final es el valor por defecto del acumulador antes de empezar a iterar, como es 0 suma todo el array
+// el valor inicial por defecto es el primer valor del array
 console.log("reduce:", c.reduce((acumulador, valor, indice, arr) => acumulador + valor, 0));
 let reduce = c.reduce((acumulador, valor, indice, arr) => acumulador + valor, 0);
 console.log(reduce);
 
 // REDUCERIGHT: Igual que reduce, pero recorre el array de derecha a izquierda
+// el 10 al final es el valor por defecto del acumulador antes de empezar a iterar, como es 10 empieza restandole el primer valor por la derecha a 10
+// Primer elemento desde la derecha (5): 10 - 5 = 5 (el acumulador ahora es 5).
+// el valor inicial por defecto es el ultimo valor del array
 console.log("reduceRight:", c.reduceRight((acumulador, valor, indice, arr) => acumulador - valor, 10));
 let reduceRight = c.reduceRight((acumulador, valor, indice, arr) => acumulador - valor, 10);
 console.log(reduceRight);
+
+let d = [10, 20, 30];
+//deberes, funciones de repeticion, ejemplos, el de reduce
+console.log(d.reduce(ac => ac));
+
+
 
 
 
