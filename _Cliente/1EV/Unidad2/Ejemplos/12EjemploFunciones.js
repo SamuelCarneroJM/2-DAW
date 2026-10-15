@@ -124,11 +124,16 @@ copy2[0] = 5;
 console.log(array);
 console.log(copy2);
 
+console.log("-----------------------");
 
-
-
-
-
-
-
+const persona = { nombre: "Juan", edad: 27 };
+const cliente = { ventas: 120, ...persona };
+console.log(persona);
+console.log(cliente);
+let cliente2 = {...persona};
+persona.nombre="Alberto";
+console.log(persona);
+console.log(cliente2);
+const copiaCliente = { ...cliente };
+console.log(copiaCliente);
 
