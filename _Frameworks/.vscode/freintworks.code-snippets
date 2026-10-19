@@ -1,0 +1,232 @@
+{
+  "Angular: componente standalone": {
+    "prefix": "ng-component",
+    "body": [
+      "import { Component } from '@angular/core';",
+      "",
+      "@Component({",
+      "  selector: 'app-${1:elemento}',",
+      "  standalone: true,",
+      "  imports: [],",
+      "  templateUrl: './${2:elemento}.html',",
+      "  styleUrl: './${2:elemento}.css'",
+      "})",
+      "export class ${3:Elemento}Component {",
+      "  $0",
+      "}"
+    ],
+    "description": "Crea un componente standalone con plantilla y estilos externos"
+  },
+  "Angular: servicio injectable": {
+    "prefix": "ng-service",
+    "body": [
+      "import { Injectable } from '@angular/core';",
+      "",
+      "@Injectable({",
+      "  providedIn: 'root'",
+      "})",
+      "export class ${1:Elemento}Service {",
+      "  $0",
+      "}"
+    ],
+    "description": "Crea un servicio disponible en toda la aplicación"
+  },
+  "Angular: interfaz de modelo": {
+    "prefix": "ng-model",
+    "body": [
+      "export interface ${1:Elemento} {",
+      "  id: ${2:number};",
+      "  ${3:nombre}: ${4:string};",
+      "  $0",
+      "}"
+    ],
+    "description": "Crea una interfaz de modelo con identificador y propiedades"
+  },
+  "Angular: servicio CRUD con API JSON": {
+    "prefix": "ng-rest-service",
+    "body": [
+      "import { Injectable, inject } from '@angular/core';",
+      "import { HttpClient } from '@angular/common/http';",
+      "import { Observable } from 'rxjs';",
+      "import { ${1:Elemento} } from '${2:../modelos/elemento}';",
+      "",
+      "@Injectable({",
+      "  providedIn: 'root'",
+      "})",
+      "export class ${3:Elementos}Service {",
+      "  private readonly http = inject(HttpClient);",
+      "  private readonly apiUrl = '${4:https://jsonplaceholder.typicode.com/elementos}';",
+      "",
+      "  getAll(): Observable<${1:Elemento}[]> {",
+      "    return this.http.get<${1:Elemento}[]>(this.apiUrl);",
+      "  }",
+      "",
+      "  getById(id: number): Observable<${1:Elemento}> {",
+      "    return this.http.get<${1:Elemento}>(this.apiUrl + '/' + id);",
+      "  }",
+      "",
+      "  create(item: Omit<${1:Elemento}, 'id'>): Observable<${1:Elemento}> {",
+      "    return this.http.post<${1:Elemento}>(this.apiUrl, item);",
+      "  }",
+      "",
+      "  update(id: number, changes: Partial<${1:Elemento}>): Observable<${1:Elemento}> {",
+      "    return this.http.patch<${1:Elemento}>(this.apiUrl + '/' + id, changes);",
+      "  }",
+      "",
+      "  delete(id: number): Observable<void> {",
+      "    return this.http.delete<void>(this.apiUrl + '/' + id);",
+      "  }",
+      "}"
+    ],
+    "description": "Genera un servicio HTTP con operaciones GET, POST, PATCH y DELETE"
+  },
+  "Angular: configurar HttpClient": {
+    "prefix": "ng-provide-http",
+    "body": [
+      "import { ApplicationConfig } from '@angular/core';",
+      "import { provideHttpClient, withFetch } from '@angular/common/http';",
+      "",
+      "export const appConfig: ApplicationConfig = {",
+      "  providers: [",
+      "    provideHttpClient(withFetch())",
+      "  ]",
+      "};"
+    ],
+    "description": "Configura HttpClient en app.config.ts para consumir una API"
+  },
+  "Angular: lista reactiva con signals": {
+    "prefix": "ng-signal-list",
+    "body": [
+      "import { computed, signal } from '@angular/core';",
+      "import { ${1:Elemento} } from '${2:../modelos/elemento}';",
+      "",
+      "private readonly elementosSignal = signal<${1:Elemento}[]>([]);",
+      "readonly elementos = this.elementosSignal.asReadonly();",
+      "readonly totalElementos = computed(() => this.elementosSignal().length);",
+      "",
+      "agregarElemento(elemento: ${1:Elemento}): void {",
+      "  this.elementosSignal.update(lista => [...lista, elemento]);",
+      "}",
+      "",
+      "eliminarElemento(id: number): void {",
+      "  this.elementosSignal.update(lista => lista.filter(elemento => elemento.id !== id));",
+      "}",
+      "$0"
+    ],
+    "description": "Crea estado de lista con signal, computed, alta y eliminación"
+  },
+  "Angular: componente con input y output": {
+    "prefix": "ng-input-output",
+    "body": [
+      "import { Component, input, output } from '@angular/core';",
+      "import { ${1:Elemento} } from '${2:../../modelos/elemento}';",
+      "",
+      "@Component({",
+      "  selector: 'app-${3:elemento}-item',",
+      "  standalone: true,",
+      "  template: `",
+      "    <article>",
+      "      <span>{{ ${4:elemento}().${5:nombre} }}</span>",
+      "      <button type=\"button\" (click)=\"eliminar.emit(${4:elemento}().id)\">Eliminar</button>",
+      "    </article>",
+      "  `",
+      "})",
+      "export class ${6:Elemento}ItemComponent {",
+      "  ${4:elemento} = input.required<${1:Elemento}>();",
+      "  eliminar = output<number>();",
+      "}"
+    ],
+    "description": "Crea un componente hijo con input requerido y output de eliminación"
+  },
+  "Angular: cargar datos JSON en componente": {
+    "prefix": "ng-load-json",
+    "body": [
+      "import { Component, OnInit, inject, signal } from '@angular/core';",
+      "import { ${1:Elemento} } from '${2:./modelos/elemento}';",
+      "import { ${3:Elementos}Service } from '${4:./servicios/elementos}';",
+      "",
+      "@Component({",
+      "  selector: 'app-${5:elementos}',",
+      "  standalone: true,",
+      "  imports: [],",
+      "  templateUrl: './${5:elementos}.html',",
+      "  styleUrl: './${5:elementos}.css'",
+      "})",
+      "export class ${6:Elementos}Component implements OnInit {",
+      "  private readonly servicio = inject(${3:Elementos}Service);",
+      "  readonly elementos = signal<${1:Elemento}[]>([]);",
+      "  readonly cargando = signal(true);",
+      "  readonly error = signal<string | null>(null);",
+      "",
+      "  ngOnInit(): void {",
+      "    this.cargarElementos();",
+      "  }",
+      "",
+      "  cargarElementos(): void {",
+      "    this.cargando.set(true);",
+      "    this.error.set(null);",
+      "    this.servicio.getAll().subscribe({",
+      "      next: datos => {",
+      "        this.elementos.set(datos);",
+      "        this.cargando.set(false);",
+      "      },",
+      "      error: () => {",
+      "        this.error.set('No se pudieron cargar los datos.');",
+      "        this.cargando.set(false);",
+      "      }",
+      "    });",
+      "  }",
+      "  $0",
+      "}"
+    ],
+    "description": "Carga elementos de un servicio JSON y expone estados de carga y error"
+  },
+  "Angular: persistir signal en localStorage": {
+    "prefix": "ng-storage-effect",
+    "body": [
+      "import { effect } from '@angular/core';",
+      "",
+      "constructor() {",
+      "  effect(() => {",
+      "    localStorage.setItem('${1:elementos}', JSON.stringify(this.${2:elementos}()));",
+      "  });",
+      "}"
+    ],
+    "description": "Guarda automáticamente el valor de un signal en localStorage"
+  },
+  "Angular HTML: iterar lista": {
+    "prefix": "ng-for",
+    "body": [
+      "@for (${1:elemento} of ${2:elementos}(); track ${1:elemento}.id) {",
+      "  <article>",
+      "    {{ ${1:elemento}.${3:nombre} }}",
+      "  </article>",
+      "} @empty {",
+      "  <p>${4:No hay elementos registrados.}</p>",
+      "}"
+    ],
+    "description": "Itera una lista con @for y muestra un estado vacío con @empty"
+  },
+  "Angular HTML: condición": {
+    "prefix": "ng-if",
+    "body": [
+      "@if (${1:condicion}) {",
+      "  $2",
+      "} @else {",
+      "  $0",
+      "}"
+    ],
+    "description": "Crea una condición de plantilla con @if y @else"
+  },
+  "Angular HTML: formulario con ngModel": {
+    "prefix": "ng-form",
+    "body": [
+      "<form (ngSubmit)=\"${1:guardar}()\">",
+      "  <label for=\"${2:nombre}\">${3:Nombre}</label>",
+      "  <input id=\"${2:nombre}\" name=\"${2:nombre}\" [(ngModel)]=\"${4:nombre}\" required>",
+      "  <button type=\"submit\">${5:Guardar}</button>",
+      "</form>"
+    ],
+    "description": "Crea un formulario de plantilla; importa FormsModule en el componente"
+  }
+}
