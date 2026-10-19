@@ -1,0 +1,49 @@
+.contenedor {
+  width: 90%;
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+h1 {
+  color: #d62828;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+input,
+select,
+button {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+button {
+  border: none;
+  border-radius: 5px;
+  background-color: #d62828;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #a61c1c;
+}
+
+.lista {
+  margin-top: 20px;
+}
+
+.vacio {
+  padding: 20px;
+  color: #666;
+  text-align: center;
+}

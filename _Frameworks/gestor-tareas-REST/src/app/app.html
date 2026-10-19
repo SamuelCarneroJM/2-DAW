@@ -1,0 +1,42 @@
+<div class="contenedor">
+  <h1>Gestor de Tareas REST</h1>
+
+  @if (cargando()) {
+    <p class="cargando">Cargando tareas desde la API pública...</p>
+  }
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  <div class="panel-metricas">
+    <p>
+      Total: <strong>{{ totalTareas() }}</strong> | 
+      Completadas: <strong>{{ completadas() }}</strong> | 
+      Progreso: <strong>{{ porcentaje() }}%</strong>
+    </p>
+  </div>
+
+  <div class="formulario">
+    <input 
+      type="text" 
+      [ngModel]="nuevoTitulo()" 
+      (ngModelChange)="nuevoTitulo.set($event)"
+      placeholder="Escribe un título para la tarea..."
+    />
+    <button (click)="agregarTarea()">Añadir Tarea (POST)</button>
+  </div>
+
+  <div class="lista-tareas">
+    @for (t of tareas(); track t.id) {
+      <app-item-tarea 
+        [tarea]="t" 
+        (onToggle)="toggleTarea($event)" 
+        (onDelete)="eliminarTarea($event)">
+      </app-item-tarea>
+    } @empty {
+      @if (!cargando()) {
+        <p>No hay tareas pendientes en la lista.</p>
+      }
+    }
+  </div>
+</div>
