@@ -71,6 +71,48 @@ console.log(some);
 console.log("reduce:", c.reduce((acumulador, valor, indice, arr) => acumulador + valor, 0));
 let reduce = c.reduce((acumulador, valor, indice, arr) => acumulador + valor, 0);
 console.log(reduce);
+const c2 = [10, 20, 30];
+console.log("PRUEBAS CLASE");
+console.log(c2.reduce(ac => ac)); //devuelve 10, valor del acumulador, ya que por defecto el valor del acumulador es el del ar[0]
+console.log(c2.reduce((ac, valor) => {
+    console.log(ac);
+    console.log(valor);
+
+    return valor;
+}, 0));
+
+console.log(c2.reduce((ac, n) => ac + n));
+
+
+console.log(c2.reduce((ac, n, i) => ac + n + i));
+console.log(c2.reduce((ac, n, i) => {
+
+    return (ac + n + i);
+}));
+
+c = [10, 20, 30];
+
+console.log(c.reduce((ac, n, i) => ac + n + i));
+console.log(c.reduce((ac, n, i) => {
+    console.log(ac);
+    console.log(n);
+    console.log(i);
+
+    return (ac + n + i);
+}));
+
+c = ["a", "b", "c"];
+
+console.log(c.reduce((ac, n, i) => ac + n + i));
+console.log(c.reduce((ac, n, i) => {
+    console.log(ac);
+    console.log(n);
+    console.log(i);
+
+    return (ac + n + i);
+}));
+
+
 
 // REDUCERIGHT: Igual que reduce, pero recorre el array de derecha a izquierda
 // el 10 al final es el valor por defecto del acumulador antes de empezar a iterar, como es 10 empieza restandole el primer valor por la derecha a 10

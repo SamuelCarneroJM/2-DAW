@@ -93,8 +93,10 @@ for (let [clave, valor] of alumnos2) {
 }
 
 //NO SE PUEDE
-for (let clave2 in alumnos2.values()) {
-    if (Object.hasOwn(alumnos2, clave2)) {
-        console.log(clave2, alumnos2[clave2]);
-    }
-}
+// for (let clave2 in alumnos2.values()) {
+//     if (Object.hasOwn(alumnos2, clave2)) {
+//         console.log(clave2, alumnos2[clave2]);
+//     }
+// }
+
+
