@@ -1,5 +1,5 @@
 
-//FUNCION NOMBRADA
+// Una función nombrada se declara con function y puede devolver un valor con return.
 console.log("funcion nombrada");
 function hello(nombre) {
     return "hola " + nombre;
@@ -7,14 +7,14 @@ function hello(nombre) {
 
 console.log(hello("Pepe"));
 
-//FUNCION ANONIMA ASIGNADA A UNA VARIABLE
+// Una función anónima puede guardarse en una variable y llamarse a través de ella.
 console.log("funcion con variable");
 let hello2 = function (nombre) {
     return "hola " + nombre;
 }
 console.log(hello2("Pepe"));
 
-//FUNCION QUE RECIVE UNA FUNCION
+// Una función puede recibir como argumento el resultado de otra función o una función callback.
 console.log("funcion que recive una funcion");
 function adios(nombre) {
     console.log("FUNCION ADIOS ---" + nombre);
@@ -37,7 +37,7 @@ hola(adios("Pepe"), " Pepe2");
 
 hola(adios2(), "Pepe");
 
-//parametros
+// Los parámetros sin valor recibido son undefined; los argumentos extra no se asignan a parámetros nombrados.
 function f1(nombre, edad) {
     console.log(nombre + " " + edad);
 }
@@ -48,7 +48,7 @@ f1("Pepe", 20, "otro dato"); // pepe 20
 console.log(48);
 f1(); //undefined undefined
 
-//parametros utilizando arguments (se usa menos)
+// arguments permite consultar los argumentos recibidos dentro de una función tradicional.
 function f2(nombre, edad) {
     console.log(arguments[0] + arguments[1]);
 
@@ -56,14 +56,14 @@ function f2(nombre, edad) {
 f2("Pepe"); //pepe - undefined
 f2("Pepe", 20, "otro dato"); // pepe 20
 
-//parametros con valores por defecto
+// Los parámetros por defecto se usan cuando el argumento correspondiente no se proporciona.
 function f3(nombre = "Pepe", edad = 20) {
     console.log(nombre + " " + edad)
 }
 f3("Juan");
 f3();
 
-//arguments para cuando no sabes la cantidad de parametros que recibe la funcion
+// Rest (...args) recoge una cantidad variable de argumentos en un array.
 function suma() {
     let resultado = 0;
     for (let i = 0; i < arguments.length; i++) {
@@ -72,6 +72,7 @@ function suma() {
     console.log(resultado);
 }
 
+// La sintaxis rest también permite recorrer esos argumentos directamente.
 function suma2(...args) {
     let resultado = 0;
     for (const a of args) {
@@ -84,6 +85,7 @@ suma();
 suma2(1, 2, 3, 4, 5, 6);
 suma2();
 
+// Un parámetro rest puede recoger todos los valores restantes después de los parámetros normales.
 function añadirApellidos(nombre, ...apellidos) {
 
     console.log("arguments: " + arguments.length);
@@ -100,6 +102,7 @@ console.log(añadirApellidos("Pedro"));
 console.log(añadirApellidos("Luis", "Ruiz"));
 console.log(añadirApellidos("Ana", "Gil", "Sanz"));
 
+// Spread (...) expande los elementos de un iterable; en arrays permite crear copias superficiales.
 let values = [1, 2, 3];
 console.log(values);
 let copy = [...values];
@@ -126,6 +129,7 @@ console.log(copy2);
 
 console.log("-----------------------");
 
+// Spread también copia las propiedades enumerables de un objeto en otro objeto.
 const persona = { nombre: "Juan", edad: 27 };
 const cliente = { ventas: 120, ...persona };
 console.log(persona);
@@ -137,3 +141,27 @@ console.log(cliente2);
 const copiaCliente = { ...cliente };
 console.log(copiaCliente);
 
+// EJERCICIOS APLICADOS
+// Hemos usado parámetros por defecto, rest parameters y spread para manejar funciones con distintos números de argumentos
+function saludar(nombre = "Invitado", edad = 18) {
+    console.log("Hola " + nombre + ", tienes " + edad + " años");
+}
+saludar();
+saludar("Ana", 20);
+
+function sumaTodo(...numeros) {
+    let total = 0;
+    for (let valor of numeros) {
+        total += valor;
+    }
+    return total;
+}
+console.log("SumaTodo:", sumaTodo(1, 2, 3, 4, 5));
+
+let valores = [10, 20, 30];
+let copiaValores = [...valores];
+console.log("copia con spread:", copiaValores);
+
+let persona2 = { nombre: "Juan", edad: 27 };
+let cliente3 = { ...persona2, ventas: 120 };
+console.log(cliente3);

@@ -75,3 +75,16 @@ for (let clave2 in set2.values()) {
     // Esto no imprimirá los valores del Set, ya que for...in busca propiedades enumerables del iterador
     console.log(clave2);
 }
+
+// EJERCICIOS APLICADOS
+// En los ejercicios hemos usado Set para evitar duplicados y guardar valores únicos
+let numerosUnicos = new Set([1, 2, 2, 3, 4, 4, 5]);
+console.log("set de únicos:", numerosUnicos);
+console.log("tamaño:", numerosUnicos.size);
+console.log("contiene 3:", numerosUnicos.has(3));
+
+numerosUnicos.add(6);
+numerosUnicos.delete(2);
+console.log("después de modificar:", numerosUnicos);
+
+// Un Set no acepta duplicados, por eso se elimina automáticamente la repetición

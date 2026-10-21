@@ -78,6 +78,20 @@ console.log(alumnos);
 console.log(alumnos.size);
 // 0
 
+// EJERCICIOS APLICADOS
+// En los ejercicios hemos usado Map para asociar claves y valores de forma clara
+let alumnosEj = new Map([
+    ["nombre", "Samuel"],
+    ["edad", 23],
+    ["curso", "2DAW"]
+]);
+
+console.log("nombre:", alumnosEj.get("nombre"));
+console.log("tiene curso:", alumnosEj.has("curso"));
+console.log("claves:", [...alumnosEj.keys()]);
+console.log("valores:", [...alumnosEj.values()]);
+console.log("entradas:", [...alumnosEj.entries()]);
+
 //forof
 //bucle for para recorrer mapas
 console.log("-- forof --");

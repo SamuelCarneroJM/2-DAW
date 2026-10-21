@@ -165,7 +165,45 @@ console.log(/^[a-c]{3,7}$/.test("ab"));        // false, tiene menos de 3
 console.log(/^[a-c]{3,7}$/.test("abcabcab"));  // false, tiene más de 7
 console.log(/^[a-c]{3,7}$/.test("abcd"));      // false, contiene la letra d
 console.log(/^[a-c]{3,7}$/.test("ab-ca"));     // false, contiene un guion
-console.log(/^[a-c]{3,7}$/.test("ABC"));       // false, las mayúsculas no están incluidas
+console.log(/^[a-c]{3,7}$/.test("ABC"));       // false, las may
+
+// EJERCICIOS APLICADOS
+// En los ejercicios hemos usado expresiones regulares para validar datos reales
+
+// 1. Nombre: solo letras y espacios
+let exprTexto = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]+$/;
+console.log(exprTexto.test("Ana María")); // true
+console.log(exprTexto.test("Ana123")); // false
+
+// 2. DNI: 8 números y una letra
+let exprDni = /^[0-9]{8}[A-Za-z]$/;
+console.log(exprDni.test("34567881A")); // true
+console.log(exprDni.test("3456788A")); // false
+
+// 3. Teléfono español: empieza por 6 o 9 y tiene 9 cifras
+let exprTelefono = /^[69][0-9]{8}$/;
+console.log(exprTelefono.test("612345678")); // true
+console.log(exprTelefono.test("123456789")); // false
+
+// 4. Código postal: 5 números
+let exprCodigoPostal = /^[0-9]{5}$/;
+console.log(exprCodigoPostal.test("47030")); // true
+
+// 5. Matrícula: 4 cifras y 3 letras mayúsculas
+let exprMatricula = /^[0-9]{4}[A-Z]{3}$/;
+console.log(exprMatricula.test("1234ABC")); // true
+
+// 6. Validar texto con mayúsculas/minúsculas
+console.log(/^[A-ZÁÉÍÓÚÜÑ]+$/.test("HOLA")); // true
+console.log(/^[a-záéíóúüñ]+$/.test("buenas")); // true
+
+// 7. Comprobar si una cadena empieza por un patrón concreto
+console.log(/^hello/.test("hello world")); // true
+console.log(/^hello/.test("say hello")); // false
+
+// 8. Buscar patrones en una cadena con match
+let texto = "la casa es azul y la puerta es azul";
+console.log(texto.match(/azul/g)); // ["azul", "azul"]úsculas no están incluidas
 console.log(/^[a-c]{3,7}$/.test("aaaaaaa-aaaaaaa"));// false, tiene mas de 7 caracteres
 
 

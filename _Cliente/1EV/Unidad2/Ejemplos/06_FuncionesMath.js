@@ -125,3 +125,23 @@ console.log("---Número entero aleatorio entre mínimo y máximo---");
 let minimo = 1;
 let maximo = 10;
 console.log(Math.floor(Math.random() * (maximo - minimo + 1)) + minimo);
+
+// EJERCICIOS APLICADOS
+// En los ejercicios hemos usado Math para convertir valores, comparar números y calcular diferencias
+console.log("Math.abs(-12):", Math.abs(-12));
+console.log("Math.round(4.7):", Math.round(4.7));
+console.log("Math.ceil(4.2):", Math.ceil(4.2));
+console.log("Math.floor(4.9):", Math.floor(4.9));
+console.log("Math.pow(2, 3):", Math.pow(2, 3));
+console.log("Math.sqrt(16):", Math.sqrt(16));
+
+// Número aleatorio entre 1 y 10 incluido
+let min = 1;
+let max = 10;
+console.log("aleatorio entre 1 y 10:", Math.floor(Math.random() * (max - min + 1)) + min);
+
+// Cálculo de la diferencia de fecha en días
+let fecha1 = new Date(2026, 10, 4);
+let fecha2 = new Date(2026, 10, 5);
+let diferenciaMs = fecha2 - fecha1;
+console.log("diferencia días:", diferenciaMs / (1000 * 60 * 60 * 24));

@@ -121,3 +121,27 @@ fecha6.setTime(0);
 console.log(fecha6);
 
 //No existe setDay(), porque el día de la semana se calcula automáticamente a partir de la fecha.
+
+// EJERCICIOS APLICADOS
+// En los ejercicios hemos calculado cumpleaños y días de la semana usando Date
+let fechaNacimiento = new Date(2003, 9, 4);
+let hoy = new Date();
+let proximoCumple = new Date(fechaNacimiento);
+proximoCumple.setFullYear(hoy.getFullYear());
+
+console.log("cumpleaños:", proximoCumple);
+console.log("día de la semana:", proximoCumple.getDay());
+
+switch (proximoCumple.getDay()) {
+    case 0: console.log("Domingo"); break;
+    case 1: console.log("Lunes"); break;
+    case 2: console.log("Martes"); break;
+    case 3: console.log("Miércoles"); break;
+    case 4: console.log("Jueves"); break;
+    case 5: console.log("Viernes"); break;
+    case 6: console.log("Sábado"); break;
+}
+
+let diffMs = proximoCumple - hoy;
+console.log("diferencia en milisegundos:", diffMs);
+console.log("diferencia en días:", Math.abs(diffMs) / 86400000);

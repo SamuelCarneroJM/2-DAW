@@ -339,6 +339,24 @@ imprimir(numerosFill);
 
 console.log("---------------------");
 
+// EJERCICIOS APLICADOS
+// En los ejercicios hemos usado métodos de arrays para transformar, filtrar, buscar y acumular elementos
+let valores = [1, 2, 3, 4, 5];
+console.log("map:", valores.map(v => v * 3));
+console.log("filter:", valores.filter(v => v % 2 === 0));
+console.log("find:", valores.find(v => v > 3));
+console.log("findIndex:", valores.findIndex(v => v > 3));
+console.log("every:", valores.every(v => v > 0));
+console.log("some:", valores.some(v => v > 4));
+console.log("reduce:", valores.reduce((acumulador, v) => acumulador + v, 0));
+
+// También hemos usado forEach para recorrer arrays y ejecutar una acción
+valores.forEach(v => console.log("Valor:", v));
+
+// Y sort() para ordenar datos, por ejemplo nombres o números
+let nombresParaOrdenar = ["Nico", "Samuel", "Laura", "Santi"];
+console.log("nombres ordenados:", nombresParaOrdenar.sort());
+
 // También se pueden indicar la posición inicial y la posición final.
 // La posición final no se incluye.
 let numerosFillParcial = [1, 2, 3, 4, 5];

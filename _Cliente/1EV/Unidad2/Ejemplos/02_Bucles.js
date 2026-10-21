@@ -1,20 +1,20 @@
 let frutas = ["manzana", "pera", "uva", "melocoton", "platano"];
 
-// for in se usa para recorrer las propiedades de un objeto
+// for...in recorre las claves o índices de un objeto o array.
 console.log("FOR IN");
 for (let indice in frutas) {
     console.log(indice, frutas[indice]);
 }
 console.log("-------------");
 
-// for of se usa para recorrer los valores de cadenas y objetos iteratables
+// for...of recorre directamente los valores de un iterable, como un array.
 console.log("FOR OF");
 for (let fruta of frutas) {
     console.log(fruta);
 }
 console.log("-------------");
 
-//for of tambien se puede usar con cadenas
+// for...of también recorre los caracteres de una cadena.
 let palabra = "Hola"
 for (let letra of palabra) {
     console.log(letra);
@@ -37,6 +37,7 @@ console.log("-------------");
 
 console.log("EJEMPLO CON OBJETOS");
 
+// Un objeto agrupa propiedades con su correspondiente valor.
 let persona1 = {
     nombre: "Samuel",
     edad: 22
@@ -57,6 +58,7 @@ for (let atrib in persona1){
 }
 
 for (let atrib in persona1){
+    // La notación con corchetes permite acceder al valor usando el nombre de propiedad.
     console.log(atrib, persona1[atrib]);
 }
 
@@ -64,4 +66,30 @@ for (let persona in listaPersonas) {
     console.log(persona, listaPersonas[persona]);
     //primer parametro (persona) = indice en el array
     //segundo parametro (listaPersonas[persona]) = toString() del objeto persona que se esta iterando
+}
+
+// EJERCICIOS APLICADOS
+// Hemos usado for...in para recorrer propiedades de objetos y arrays
+let alumno = { nombre: "Samuel", edad: 22, curso: "2DAW" };
+for (let dato in alumno) {
+    console.log("Propiedad:", dato, "Valor:", alumno[dato]);
+}
+
+// Y for...of para recorrer valores de un array o cadena
+let nombres = ["Ana", "Luis", "Marta"];
+for (let nombre of nombres) {
+    console.log("Nombre:", nombre);
+}
+
+for (let letra of "Hola") {
+    console.log("Letra:", letra);
+}
+
+// En los ejercicios también hemos recorrido arrays de objetos y cadenas con estos bucles
+let alumnos = [
+    { nombre: "Laura", edad: 25 },
+    { nombre: "Santi", edad: 21 }
+];
+for (let i in alumnos) {
+    console.log("Alumno " + i + ":", alumnos[i].nombre, alumnos[i].edad);
 }
