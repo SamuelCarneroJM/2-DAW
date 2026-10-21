@@ -51,6 +51,6 @@ let f3 = ar => {
     return suma;
 }
 
-let f3flecha = a => a.filter((e, i) => i % 2 == 0).reduce((ac,n) => ac + n);
+let f3flecha = a => a.filter((e, i) => i % 2 == 0).reduce((ac, n) => ac + n);
 
 console.log(f3flecha(a));

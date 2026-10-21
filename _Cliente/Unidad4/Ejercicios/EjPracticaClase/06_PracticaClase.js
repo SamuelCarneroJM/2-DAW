@@ -11,11 +11,13 @@ let f4 = (fraseArr) => {
 
     });
 
-    return fraseArr.join("");;
+    return fraseArr.join("");
 }
 
+let f4flecha = a => a.map(n => n[0].toUpperCase() + n.slice(1)).reduce((fraseFinal, palabra) => fraseFinal + palabra);
+
 console.log("-- F4-- ");
-console.log(f4(fraseAr));
+console.log(f4flecha(fraseAr));
 
 let f5 = (fraseArr) => {
     let longTotal = fraseArr.join("");
@@ -33,9 +35,17 @@ let f5 = (fraseArr) => {
     return longMedia;
 }
 
+let f5flecha = a => (a.reduce((ac, n) => ac + n.length, 0)) / a.length;
+
 console.log("-- F5 --");
-console.log(f5(fraseAr));
+console.log(f5flecha(fraseAr));
 
 let f6 = (fraseArr) => {
 
 }
+
+let f6flecha = a => a.filter(e => e.includes("a")).map(e => e.length);
+
+console.log("-- F6 --");
+console.log(f6flecha(fraseAr));
+

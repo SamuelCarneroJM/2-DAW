@@ -2067,6 +2067,9 @@ console.log(cliente3);
 {
 // Una función flecha ofrece una sintaxis compacta; esta normaliza la letra y comprueba si es vocal.
 
+// Esta función flecha recibe una letra y devuelve true si contiene una vocal.
+// letraMin guarda la letra convertida a minúscula para que la comprobación no distinga mayúsculas.
+// test() devuelve true si encuentra una vocal en la expresión regular.
 let esVocal = letra => {
     let letraMin = letra.toLowerCase();
     // if (letraMin == "a" || letraMin == "e" || letraMin == "i" || letraMin == "o" || letraMin == "u") {
@@ -2084,73 +2087,89 @@ let esVocal = letra => {
 let letra = "e";
 console.log("La letra " + letra + " es vocal: " + esVocal(letra));
 
-// forEach() ejecuta una función para cada elemento; recibe valor, índice y array.
+// forEach() ejecuta la función flecha una vez por cada elemento y no devuelve un array nuevo.
 let a = ["a", "b", "c"];
 a.forEach(function (e) {
     console.log("normal " + e);
 });
-//foreach te puede devolver valor indice y el propio array (ver ayuda de vs)
+// La función flecha recibe el valor actual, su índice y el array completo.
+// Se imprimen esos tres argumentos en cada iteración.
 a.forEach((valor, indice, arr) => {
     console.log("flecha ", indice, valor, arr);
 });
 
-// map() transforma cada elemento y devuelve un array nuevo de la misma longitud.
+// map() llama a la función flecha para cada elemento y guarda sus resultados en un array nuevo.
 let b = [1, 2, 3];
+// valor es el elemento actual. La expresión después de => se devuelve automáticamente.
+// Resultado: [2, 3, 4].
 console.log(b.map((valor, indice, arr) => valor + 1));
 
-// Transforma el array sumando 1 y el valor fijo b[1] (que es 2) a cada elemento
+// Suma 1 y b[1] (que vale 2) a cada valor; indice y arr se reciben pero no se usan.
+// Resultado: [4, 5, 6].
 console.log(b.map((valor, indice, arr) => valor + 1 + b[1]));
 
-// Transforma el array sumando 1, el elemento b[1] y el índice actual a cada elemento
+// Además de valor, esta función usa indice para obtener un resultado distinto según la posición.
+// Resultado: [4, 6, 8].
 let result = b.map((valor, indice, arr) => valor + (1 + b[1] + indice));
 console.log(result);
 
-// filter() devuelve un array nuevo con los elementos que cumplen la condición.
+// filter() conserva en un array nuevo los valores para los que la función flecha devuelve true.
 let c = [1, 2, 3, 4, 5];
+// La condición valor > 2 elimina 1 y 2. Resultado: [3, 4, 5].
 console.log("filter:", c.filter((valor, indice, arr) => valor > 2));
+// Se guarda el mismo array filtrado en una variable para poder reutilizarlo.
 let filter = c.filter((valor, indice, arr) => valor > 2);
 console.log(filter);
 
-// find() devuelve el primer elemento que cumple la condición o undefined si no hay coincidencia.
+// find() devuelve el primer valor que cumple la condición; si ninguno la cumple devuelve undefined.
+// En este caso devuelve 3, que es el primer número mayor que 2.
 console.log("find:", c.find((valor, indice, arr) => valor > 2));
 let find = c.find((valor, indice, arr) => valor > 2);
 console.log(find);
 
-// findIndex() devuelve el índice del primer elemento que cumple la condición o -1 si no hay coincidencia.
+// findIndex() devuelve la posición del primer valor que cumple la condición, o -1 si no existe.
+// El 3 está en la posición 2.
 console.log("findIndex:", c.findIndex((valor, indice, arr) => valor > 2));
 let findIndex = c.findIndex((valor, indice, arr) => valor > 2);
 console.log(findIndex);
 
-// every() comprueba si todos los elementos cumplen la condición y devuelve un booleano.
+// every() devuelve true solo si todos los elementos cumplen la condición.
+// Todos los valores de c son mayores que 0, así que el resultado es true.
 console.log("every:", c.every((valor, indice, arr) => valor > 0));
 let every = c.every((valor, indice, arr) => valor > 0);
 console.log(every);
 
-// some() comprueba si al menos un elemento cumple la condición y devuelve un booleano.
+// some() devuelve true si al menos un elemento cumple la condición.
+// Hay valores mayores que 4, por eso devuelve true.
 console.log("some:", c.some((valor, indice, arr) => valor > 4));
 let some = c.some((valor, indice, arr) => valor > 4);
 console.log(some);
 
-// reduce() combina los elementos de izquierda a derecha en un único resultado.
-// el 0 al final es el valor por defecto del acumulador antes de empezar a iterar, como es 0 suma todo el array
-// el valor inicial por defecto es el primer valor del array
+// reduce() recorre el array de izquierda a derecha y lo reduce a un único resultado.
+// acumulador contiene el resultado parcial; valor es el elemento actual.
+// El 0 es el valor inicial del acumulador. La suma total de c es 15.
 console.log("reduce:", c.reduce((acumulador, valor, indice, arr) => acumulador + valor, 0));
 let reduce = c.reduce((acumulador, valor, indice, arr) => acumulador + valor, 0);
 console.log(reduce);
 const c2 = [10, 20, 30];
 console.log("PRUEBAS CLASE");
-console.log(c2.reduce(ac => ac)); //devuelve 10, valor del acumulador, ya que por defecto el valor del acumulador es el del ar[0]
+// Si no se indica valor inicial, reduce() toma el primer elemento como acumulador y empieza por el segundo.
+// La flecha devuelve el acumulador sin modificarlo, así que el resultado es 10.
+console.log(c2.reduce(ac => ac));
+// Al indicar 0 como inicial, la primera llamada recibe ac = 0 y valor = 10.
+// La flecha devuelve valor, que pasa a ser el acumulador del paso siguiente.
 console.log(c2.reduce((ac, valor) => {
     console.log(ac);
     console.log(valor);
 
     return valor;
 }, 0));
-
+// Suma todos los números. Sin valor inicial, el acumulador empieza con el primer elemento.
 console.log(c2.reduce((ac, n) => ac + n));
 
-
+// En cada paso se suma al acumulador el valor actual y su índice.
 console.log(c2.reduce((ac, n, i) => ac + n + i));
+// Con llaves, la flecha necesita return para devolver el nuevo acumulador.
 console.log(c2.reduce((ac, n, i) => {
 
     return (ac + n + i);
@@ -2158,7 +2177,9 @@ console.log(c2.reduce((ac, n, i) => {
 
 c = [10, 20, 30];
 
+// Esta flecha usa los parámetros acumulador, número e índice para calcular la suma acumulada.
 console.log(c.reduce((ac, n, i) => ac + n + i));
+// El bloque permite mostrar los argumentos recibidos en cada iteración antes de devolver el resultado.
 console.log(c.reduce((ac, n, i) => {
     console.log(ac);
     console.log(n);
@@ -2169,7 +2190,9 @@ console.log(c.reduce((ac, n, i) => {
 
 c = ["a", "b", "c"];
 
+// Con cadenas, + concatena el acumulador, el carácter actual y el índice.
 console.log(c.reduce((ac, n, i) => ac + n + i));
+// Esta versión muestra cada argumento y devuelve el texto acumulado para la siguiente iteración.
 console.log(c.reduce((ac, n, i) => {
     console.log(ac);
     console.log(n);
@@ -2180,10 +2203,8 @@ console.log(c.reduce((ac, n, i) => {
 
 
 
-// reduceRight() combina los elementos en un único resultado recorriendo el array de derecha a izquierda.
-// el 10 al final es el valor por defecto del acumulador antes de empezar a iterar, como es 10 empieza restandole el primer valor por la derecha a 10
-// Primer elemento desde la derecha (5): 10 - 5 = 5 (el acumulador ahora es 5).
-// el valor inicial por defecto es el ultimo valor del array
+// reduceRight() aplica la función de derecha a izquierda y devuelve un único resultado.
+// El 10 es el acumulador inicial; cada paso le resta el valor actual, empezando por el último elemento.
 console.log("reduceRight:", c.reduceRight((acumulador, valor, indice, arr) => acumulador - valor, 10));
 let reduceRight = c.reduceRight((acumulador, valor, indice, arr) => acumulador - valor, 10);
 console.log(reduceRight);
@@ -2192,26 +2213,26 @@ let d = [10, 20, 30];
 //deberes, funciones de repeticion, ejemplos, el de reduce
 console.log(d.reduce(ac => ac));
 
-// EJERCICIOS APLICADOS
-// En los ejercicios hemos usado funciones flecha para trabajar con arrays de forma compacta
+// Estos ejemplos muestran las mismas funciones usando flechas con un parámetro, sin paréntesis.
 let a2 = [1, 2, 3, 4];
+// map multiplica cada elemento por 3 y devuelve [3, 6, 9, 12].
 console.log("map con flecha:", a2.map(n => n * 3));
+// filter conserva los números cuyo resto al dividir por 2 es 0: [2, 4].
 console.log("filter con flecha:", a2.filter(n => n % 2 === 0));
+// reduce suma los elementos; ac es el acumulador y n el valor actual. El 0 inicia la suma.
 console.log("reduce con flecha:", a2.reduce((ac, n) => ac + n, 0));
+// find devuelve el primer elemento mayor que 2: 3.
 console.log("find con flecha:", a2.find(n => n > 2));
+// some comprueba si algún valor es mayor que 4; aquí devuelve false.
 console.log("some con flecha:", a2.some(n => n > 4));
+// every comprueba si todos los valores son mayores que 0; aquí devuelve true.
 console.log("every con flecha:", a2.every(n => n > 0));
 
-// Ejemplo de función flecha con condición y expresión regular
+// La flecha recibe una letra y test() comprueba si es una vocal, sin distinguir mayúsculas.
 let esVocal2 = letra => /[aeiou]/i.test(letra);
 console.log("esVocal2('e'):", esVocal2("e"));
 
-// Ejemplo de reduceRight
+// reduceRight concatena las letras de derecha a izquierda; el texto inicial es "".
 let letras = ["a", "b", "c"];
 console.log("reduceRight:", letras.reduceRight((ac, n) => ac + n, ""));
-
-
-
-
-
 }
