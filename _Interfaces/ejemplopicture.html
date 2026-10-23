@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang='es'>
+
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Prueba con Picture</title>
+    <link rel='stylesheet' href='main.css'>
+</head>
+
+<body>
+    <!-- Imagen usando picture (Dirección de arte: cambia el encuadre/recorte) -->
+    <picture>
+        <!-- Si la pantalla es grande (PC), muestra la panorámica -->
+        <source media="(min-width: 1024px)" srcset="f1_panoramica.jpg">
+        
+        <!-- Si la pantalla es mediana (Tablet), muestra la cuadrada -->
+        <source media="(min-width: 768px)" srcset="f1_cuadrada.jpg">
+        
+        <!-- Si es móvil (o falla lo anterior), muestra la vertical -->
+        <img src="f1_vertical.jpg" alt="Pepe con diferente encuadre">
+    </picture>
+</body>
+
+</html>
