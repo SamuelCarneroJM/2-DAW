@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "titulo": "Super Mario Odyssey",
+    "plataforma": "Nintendo Switch",
+    "anio": 2017,
+    "categoria": "Principal",
+    "descripcion": "Una aventura en 3D de estilo sandbox donde Mario viaja por distintos reinos a bordo de la nave Odyssey junto a Cappy para rescatar a la princesa Peach de Bowser.",
+    "imagenUrl": "https://placehold.co/640x360?text=Super+Mario+Odyssey"
+  },
+  {
+    "id": 2,
+    "titulo": "Mario Kart 8 Deluxe",
+    "plataforma": "Nintendo Switch",
+    "anio": 2017,
+    "categoria": "Spin-off",
+    "descripcion": "El juego de carreras definitivo del universo Mario con más de 48 circuitos, gravedad cero, objetos clásicos y decenas de personajes jugables.",
+    "imagenUrl": "https://placehold.co/640x360?text=Mario+Kart+8+Deluxe"
+  },
+  {
+    "id": 3,
+    "titulo": "Super Mario Bros. Wonder",
+    "plataforma": "Nintendo Switch",
+    "anio": 2023,
+    "categoria": "Principal",
+    "descripcion": "Aventura de plataformas en 2D donde las Flores Maravilla transforman el mundo de juego provocando efectos alocados e insólitos en cada nivel.",
+    "imagenUrl": "https://placehold.co/640x360?text=Super+Mario+Bros+Wonder"
+  },
+  {
+    "id": 4,
+    "titulo": "Super Mario 64",
+    "plataforma": "Nintendo 64",
+    "anio": 1996,
+    "categoria": "Principal",
+    "descripcion": "El título revolucionario que definió el género de plataformas en 3D. Salta a través de los cuadros del castillo de Peach para recolectar las estrellas de poder.",
+    "imagenUrl": "https://placehold.co/640x360?text=Super+Mario+64"
+  },
+  {
+    "id": 5,
+    "titulo": "Luigi's Mansion 3",
+    "plataforma": "Nintendo Switch",
+    "anio": 2019,
+    "categoria": "Spin-off",
+    "descripcion": "Luigi debe armarse de valor y usar su Succionaentes G-00 para explorar las temáticas plantas de un hotel encantado y salvar a Mario y sus amigos.",
+    "imagenUrl": "https://placehold.co/640x360?text=Luigis+Mansion+3"
+  },
+  {
+    "id": 6,
+    "titulo": "Super Mario World",
+    "plataforma": "Super Nintendo (SNES)",
+    "anio": 1990,
+    "categoria": "Principal",
+    "descripcion": "La obra maestra de 16 bits que introdujo al dinosaurio Yoshi. Explora la Isla Dinosaurio a través de decenas de niveles llenos de secretos y salidas ocultas.",
+    "imagenUrl": "https://placehold.co/640x360?text=Super+Mario+World"
+  },
+  {
+    "id": 7,
+    "titulo": "Paper Mario: The Thousand-Year Door",
+    "plataforma": "Nintendo Switch / GameCube",
+    "anio": 2004,
+    "categoria": "Spin-off",
+    "descripcion": "Un aclamado RPG con estilo de papel donde Mario se alía con divertidos compañeros para descubrir el secreto oculto tras la Puerta Milenaria.",
+    "imagenUrl": "https://placehold.co/640x360?text=Paper+Mario"
+  },
+  {
+    "id": 8,
+    "titulo": "Super Mario Galaxy",
+    "plataforma": "Wii",
+    "anio": 2007,
+    "categoria": "Principal",
+    "descripcion": "Una aventura espacial que desafía la gravedad. Viaja entre diminutos planetas y galaxias con mecánicas de física únicas para derrotar a Bowser.",
+    "imagenUrl": "https://placehold.co/640x360?text=Super+Mario+Galaxy"
+  },
+  {
+    "id": 9,
+    "titulo": "Super Mario Party Jamboree",
+    "plataforma": "Nintendo Switch",
+    "anio": 2024,
+    "categoria": "Spin-off",
+    "descripcion": "La experiencia de juego de tablero definitiva de Mario con decenas de minijuegos, nuevos tableros dinámicos y modos competitivos en línea.",
+    "imagenUrl": "https://placehold.co/640x360?text=Super+Mario+Party+Jamboree"
+  },
+  {
+    "id": 10,
+    "titulo": "Super Mario Bros. 3",
+    "plataforma": "NES",
+    "anio": 1988,
+    "categoria": "Principal",
+    "descripcion": "El legendario juego que introdujo el mapa del mundo, el traje de Tanooki para volar y la primera aparición de los Koopalings.",
+    "imagenUrl": "https://placehold.co/640x360?text=Super+Mario+Bros+3"
+  }
+]

@@ -1,7 +1,7 @@
 import { Component, OnInit, inject, input, signal } from '@angular/core';
 import { Router } from '@angular/router';
-import { JuegosService } from '../services/services';
 import { Juego } from '../interfaces/interfaces';
+import { JuegosService } from '../services/services';
 
 @Component({
   selector: 'app-detalle-juego',
@@ -10,14 +10,14 @@ import { Juego } from '../interfaces/interfaces';
     <div class="contenedor-detalle">
       @if (cargando()) {
         <p>Obteniendo detalles del juego #{{ id() }}...</p>
-      } @else if (juego()) {
+      } @else if (juego(); as juegoActual) {
         <div class="ficha">
-          <h2>{{ juego()?.titulo }}</h2>
-          <p><strong>ID de recurso:</strong> #{{ juego()?.id }}</p>
-          <p><strong>Plataforma:</strong> {{ juego()?.plataforma }}</p>
-          <p><strong>Año de lanzamiento:</strong> {{ juego()?.anio }}</p>
-          <p><strong>Categoría:</strong> {{ juego()?.categoria }}</p>
-          <p class="descripcion">{{ juego()?.descripcion }}</p>
+          <h2>{{ juegoActual.titulo }}</h2>
+          <p><strong>ID de recurso:</strong> #{{ juegoActual.id }}</p>
+          <p><strong>Plataforma:</strong> {{ juegoActual.plataforma }}</p>
+          <p><strong>Año de lanzamiento:</strong> {{ juegoActual.anio }}</p>
+          <p><strong>Categoría:</strong> {{ juegoActual.categoria }}</p>
+          <p class="descripcion">{{ juegoActual.descripcion }}</p>
           <button (click)="volverAlCatalogo()" class="btn-volver">
             ← Volver al Catálogo
           </button>
@@ -36,12 +36,11 @@ import { Juego } from '../interfaces/interfaces';
   `]
 })
 export class DetalleJuegoComponent implements OnInit {
-  private juegosService = inject(JuegosService);
-  private router = inject(Router);
-
-  id = input.required<string>();
-  juego = signal<Juego | null>(null);
-  cargando = signal<boolean>(true);
+  private readonly juegosService = inject(JuegosService);
+  private readonly router = inject(Router);
+  readonly id = input.required<string>();
+  readonly juego = signal<Juego | undefined>(undefined);
+  readonly cargando = signal(true);
 
   ngOnInit(): void {
     const juegoId = Number(this.id());

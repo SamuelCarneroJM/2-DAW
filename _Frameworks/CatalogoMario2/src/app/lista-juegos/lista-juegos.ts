@@ -1,7 +1,7 @@
 import { Component, OnInit, computed, effect, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { JuegosService } from '../services/services';
 import { Juego } from '../interfaces/interfaces';
+import { JuegosService } from '../services/services';
 
 @Component({
   selector: 'app-lista-juegos',
@@ -10,14 +10,12 @@ import { Juego } from '../interfaces/interfaces';
   template: `
     <div class="contenedor">
       <h2>Catálogo del Universo Super Mario</h2>
-
       <div class="panel-info">
         <p><strong>Total de Juegos:</strong> {{ totalJuegos() }}</p>
         <p><strong>Spin-offs:</strong> {{ totalSpinOffs() }}</p>
       </div>
-
       @if (cargando()) {
-        <p class="loader">Cargando juegos desde la API...</p>
+        <p class="loader">Cargando juegos...</p>
       } @else {
         <div class="grid-juegos">
           @for (juego of juegos(); track juego.id) {
@@ -46,11 +44,13 @@ import { Juego } from '../interfaces/interfaces';
   `]
 })
 export class ListaJuegosComponent implements OnInit {
-  private juegosService = inject(JuegosService);
-  juegos = signal<Juego[]>([]);
-  cargando = signal<boolean>(true);
-  totalJuegos = computed(() => this.juegos().length);
-  totalSpinOffs = computed(() => this.juegos().filter((j) => j.categoria === 'Spin-off').length);
+  private readonly juegosService = inject(JuegosService);
+  readonly juegos = signal<Juego[]>([]);
+  readonly cargando = signal(true);
+  readonly totalJuegos = computed(() => this.juegos().length);
+  readonly totalSpinOffs = computed(
+    () => this.juegos().filter((juego) => juego.categoria === 'Spin-off').length
+  );
 
   constructor() {
     effect(() => {
@@ -65,7 +65,7 @@ export class ListaJuegosComponent implements OnInit {
         this.cargando.set(false);
       },
       error: (err) => {
-        console.error('Error al conectar con la API:', err);
+        console.error('Error al cargar el catálogo:', err);
         this.cargando.set(false);
       }
     });
