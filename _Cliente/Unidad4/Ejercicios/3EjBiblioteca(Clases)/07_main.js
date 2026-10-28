@@ -63,6 +63,8 @@ if (checkPages(LIB3)) {
 }
 
 let checkLibro = (bib, libro) => bib.includes(libro);
+let checkLibro2 = (bib, nombreLibro) => bib.some(libro => libro.getNombre() == nombreLibro);
+let checkLibro3 = (bib, nombreLibro) => bib.find(libro => libro.getNombre() == nombreLibro) !== undefined ? true : false;
 
 if (checkLibro(biblioteca, LIB2)) {
     console.log("El libro " + LIB2.getNombre() + " esta en la biblioteca");
@@ -75,10 +77,69 @@ if (checkLibro(biblioteca, LIB4)) {
     console.log("El libro " + LIB4.getNombre() + " no esta en la biblioteca");
 }
 
+if (checkLibro3(biblioteca, "nombre2")) {
+    console.log("El libro " + "nombre2" + " esta en la biblioteca");
+} else {
+    console.log("El libro " + "nombre2" + " no esta en la biblioteca");
+}
+if (checkLibro(biblioteca, "nombre4")) {
+    console.log("El libro " + "nombre4" + " esta en la biblioteca");
+} else {
+    console.log("El libro " + "nombre4" + " no esta en la biblioteca");
+}
 
+biblioteca = [...biblioteca, LIB4];
+console.log(biblioteca);
 
-console.log(biblioteca.length);
+//PARTE 6
+console.log("-- PARTE 6");
 
+let librosLargos = biblioteca.filter(lib => checkPages(lib));
 
+//TAMBIEN SE PUEDE HACER ASI PERO POR QUE JS SE TRAGA TODO, MEJOR HACERLO BIEN
+//let librosLargos = biblioteca.filter(checkPages);
+console.log(librosLargos.toString());
 
+//PARTE 7
+console.log("-- PARTE 7");
 
+let checkAutor = (autor, bib) => bib.find(lib => lib.getAutor() == autor);
+
+let checkAutor2 = checkAutor("juan", biblioteca).getAutor() == "juan" ? true : false;
+
+console.log(checkAutor("juan", biblioteca));
+if (checkAutor2) {
+    console.log("Hay libros de juan");
+} else {
+    console.log("No hay libros de juan ");
+}
+
+console.log("FORRA LIBRO ->");
+
+let forraLibro = (biblioteca) => biblioteca.map(lib => lib.setForrado(true));
+forraLibro(biblioteca);
+
+biblioteca.forEach(element => {
+    element.toString();
+});
+
+console.log("PRESTAR LIBRO ->");
+let prestarLibro = (bib, titulo) => bib.splice(bib.findIndex(libro => libro.getNombre() == titulo), 1);
+
+prestarLibro(biblioteca, "nombre");
+
+biblioteca.forEach(element => {
+    element.toString();
+});
+
+console.log("DEVOLVER LIBRO ->");
+const LIB5 = new libro("nombre5", "verde", "Antonio", "160", "Pepe5", "true", "URL5");
+let devolverLibro = (bib, libro) => bib.push(libro);
+
+devolverLibro(biblioteca, LIB5);
+
+biblioteca.forEach(element => {
+    element.toString();
+});
+//JS permite esto pero no es aconsejable
+// biblioteca.toString();

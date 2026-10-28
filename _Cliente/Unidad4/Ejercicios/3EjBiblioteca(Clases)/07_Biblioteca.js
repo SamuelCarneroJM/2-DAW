@@ -8,7 +8,6 @@ export class libro {
         this.forrado = forrado;
         this.urlCover = urlCover;
     }
-
     //getter
     getNombre() {
         return this.nombre;
@@ -73,7 +72,5 @@ export class libro {
 
     toString() {
         console.log(`${this.nombre}-${this.autor}(${this.numPaginas})**${this.forrado}`);
-
     }
-
 }
