@@ -94,3 +94,12 @@ catalogo.toString();
 //parte 7
 console.log("--- PARTE7 ---");
 buscarPorPais(catalogo, "Albania") ? console.log("Hay viajes a Albania") : console.log("NO hay viajes a Albania");
+
+//parte 8
+console.log("--- PARTE8 ---");
+
+//parte 9
+console.log("--- PARTE9 ---");
+
+//parte 10
+console.log("--- PARTE10 ---");
