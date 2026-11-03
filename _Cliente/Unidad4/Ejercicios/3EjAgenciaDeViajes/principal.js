@@ -98,8 +98,57 @@ buscarPorPais(catalogo, "Albania") ? console.log("Hay viajes a Albania") : conso
 //parte 8
 console.log("--- PARTE8 ---");
 
+// generarCodigo: recibe un destino y devuelve un código de reserva formado por las
+// tres primeras letras de la ciudad en mayúsculas, las dos primeras del país en
+// mayúsculas y los días con dos dígitos usando padStart. Ejemplo: ROM-IT-05.
+let generarCodigo = destino => destino.getCiudad().substring(0, 3).toUpperCase() + "-" + destino.getPais().substring(0, 2).toUpperCase() + "-" + destino.getDias().toString().padStart(2, '0');
+console.log(generarCodigo(VIAJE1));
+
+// buscarPorEtiqueta: recibe una etiqueta (sin importar mayúsculas o minúsculas, y
+// quitando espacios con trim) y devuelve los destinos que la contienen, usando
+// filter e includes.
+let buscarPorEtiqueta = (catalogo, etiqueta) => catalogo.filter(destino => destino.getEtiquetas().some(e =>e.toLowerCase().trim().includes(etiqueta.toLowerCase().trim())));
+buscarPorEtiqueta(catalogo, "playa").toString();
+
+// resumenViaje: recibe un destino y devuelve una frase con la descripción del viaje,
+// usando replace para sustituir los espacios de la ciudad por guiones (por ejemplo
+// "Tirana Centro" pasaría a "Tirana-Centro").
+let resumenViaje = destino => "Viaje a " + destino.getCiudad().replace(/ /g, "-") + ", " + destino.getPais() + " durante " + destino.getDias() + " días.";
+console.log(resumenViaje(VIAJE1));
+
+// paisesDelCatalogo: usa map y split para obtener un array con la primera palabra
+// de cada país, y después filter con startsWith("I") para quedarte con los que
+// empiezan por I.
+let paisesDelCatalogo = catalogo => catalogo.map(destino => destino.getPais().split(" ")[0]).filter(pais => pais.startsWith("E"));
+console.log(paisesDelCatalogo(catalogo));
+
 //parte 9
 console.log("--- PARTE9 ---");
+// añadirDestino: recibe el catálogo y un destino, y devuelve un nuevo array con el
+// destino añadido (usa spread, sin modificar el original).
+let añadirDestino = (catalogo, destino) => [...catalogo, destino];
+console.log("añadirDestino: ");
+añadirDestino(catalogo, VIAJE5).toString();
 
-//parte 10
-console.log("--- PARTE10 ---");
+// cancelarDestino: recibe el catálogo y el nombre de una ciudad, y la elimina del
+// array en caso de encontrarla. Recuerda el método findIndex y splice.
+let cancelarDestino = (catalogo, ciudad) => {
+    const indice = catalogo.findIndex(v => v.getCiudad() === ciudad);
+    if (indice !== -1) catalogo.splice(indice, 1);
+    return catalogo;
+};
+
+console.log("cancelarDestino: ");
+cancelarDestino(catalogo, "Valladolid").toString();
+
+// aplicarDescuento: recibe el catálogo y un porcentaje, y devuelve un nuevo array
+// con los mismos destinos pero con el precio rebajado. Usa map y spread para no
+// modificar los objetos originales.
+let aplicarDescuento = (catalogo, porcentaje) => catalogo.map(v => Object.assign(Object.create(Object.getPrototypeOf(v)), v, { precio: v.getPrecio() * (1 - porcentaje / 100) }));
+
+console.log("aplicarDescuento: ");
+aplicarDescuento(catalogo, 20).toString();
+
+// resumenPorPais: usa reduce para devolver un objeto que cuente cuántos destinos
+// hay por país. Ejemplo: { Italia: 2, Albania: 1, Croacia: 1 }.
+
