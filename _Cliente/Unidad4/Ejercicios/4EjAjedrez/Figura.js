@@ -1,8 +1,8 @@
 export class Figura {
-    constructor(tipo) {
+    constructor() {
         this.x = 0;
         this.y = 0;
-        this.tipo = tipo; // "K", "Q", "T", "A", "C" o "P"
+        // this.tipo = tipo; // "K", "Q", "T", "A", "C" o "P"
     }
 
     moverA(x, y) {

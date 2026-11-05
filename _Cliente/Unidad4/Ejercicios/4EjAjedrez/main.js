@@ -9,8 +9,13 @@ for (let i = 0; i < 8; i++) {
 // Array con las 16 figuras
 let tipos = ["K", "Q", "T", "T", "A", "A", "C", "C", "P", "P", "P", "P", "P", "P", "P", "P"];
 let figuras = [];
+
 for (let i = 0; i < tipos.length; i++) {
-    figuras.push(new Figura(tipos[i]));
+    let nuevaFigura2 = Object.create(Figura.prototype);
+    let nuevaFigura = new Figura();
+
+    nuevaFigura.tipo = tipos[i];
+    figuras.push(nuevaFigura);
 }
 
 // Coloca una figura en una casilla aleatoria libre
